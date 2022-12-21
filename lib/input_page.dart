@@ -7,6 +7,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_containt.dart';
 import 'reusable_card.dart';
 import 'bottom_button.dart';
+import 'round_icon_button.dart';
+import 'calculator_brain.dart';
 
 import 'constants.dart';
 
@@ -204,35 +206,20 @@ class _InputPageState extends State<InputPage> {
             bottombutton(
               buttonTitle: 'CALCULATE',
               onTap: () {
+                CalculatorBrain calb = new CalculatorBrain(weight: weight, height: height);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => results_page(),
+                    builder: (context) => results_page(
+                      bmiResult: calb.calculateBMI(),
+                      resultText:calb.getResult() ,
+                      interpretation: calb.getInterpretation() ,
+                    ),
                   ),
                 );
               },
             )
           ],
         ));
-  }
-}
-
-class roundIconButton extends StatelessWidget {
-  const roundIconButton({required this.icon, required this.onpress});
-  final IconData icon;
-  final VoidCallback onpress;
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: Icon(icon),
-      onPressed: onpress,
-      elevation: 6.0,
-      constraints: BoxConstraints.tightFor(
-        width: 56,
-        height: 56,
-      ),
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-    );
   }
 }

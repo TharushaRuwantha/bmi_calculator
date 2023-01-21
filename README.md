@@ -13,7 +13,8 @@ To install this app to you can follow the steps below
 
 <ul>
   <li>Go to the "release" folder </li>
-  <li>Download the  </li>
+  <li>Download the app-release.apk file
+  </li>
   <li>Then find the downloaded file</li>
   <li>Click on it and install the app</li>
   <li>Give the necessary permission to istall the app</li>
